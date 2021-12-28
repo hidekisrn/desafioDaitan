@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@angular/cli": "^13.1.2"
+  },
+  "scripts": {
+    "build": "npx ng build",
+    "test": "npx ng help"
+  }
+}
