@@ -3,6 +3,6 @@
     "@angular/cli": "^13.1.2"
   },
   "scripts": {
-    "ng help": "npx ng help",
+    "ng help": "npx ng help"
   }
 }
