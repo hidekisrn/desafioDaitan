@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
     },
     partNumber: {
-      type: Sequelize.NUMBER,
+      type: Sequelize.INTEGER,
     },
   });
 

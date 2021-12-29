@@ -10,7 +10,6 @@ module.exports = app => {
     router.put("/:id", devices.update);
 
     router.delete("/:id", devices.delete);
-
   
     app.use('/api/devices', router);
   };
