@@ -1,0 +1,92 @@
+const db = require("../models");
+const Device = db.devices;
+const Op = db.Sequelize.Op;
+
+exports.create = (req, res) => {
+  // Validate request
+  if (!req.body.category) {
+    res.status(400).send({
+      message: "Category cannot be empty!",
+    });
+    return;
+  }
+
+  // Create a Tutorial
+  const device = {
+    category: req.body.category,
+    description: req.body.color,
+    published: req.body.partNumber,
+  };
+
+  // Save Tutorial in the database
+  Device.create(device)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the device.",
+      });
+    });
+};
+
+exports.findAll = (req, res) => {
+  Device.findAll()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving devices.",
+      });
+    });
+};
+
+exports.update = (req, res) => {
+  const id = req.params.id;
+
+  Device.update(req.body, {
+    where: { id: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "Device was updated successfully.",
+        });
+      } else {
+        res.send({
+          message: `Cannot update Device with id=${id}. Maybe Device was not found or req.body is empty!`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error updating Device with id=" + id,
+      });
+    });
+};
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Device.destroy({
+    where: { id: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "Device was deleted successfully!",
+        });
+      } else {
+        res.send({
+          message: `Cannot delete Device with id=${id}. Maybe Device was not found!`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Could not delete Device with id=" + id,
+      });
+    });
+};
