@@ -10,9 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddDeviceComponent } from './components/add-device/add-device.component';
 import { ListDevicesComponent } from './components/list-devices/list-devices.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
 
 @NgModule({
-  declarations: [AppComponent, AddDeviceComponent, ListDevicesComponent],
+  declarations: [AppComponent, AddDeviceComponent, ListDevicesComponent, AddCategoryComponent, ListCategoriesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
