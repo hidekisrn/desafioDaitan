@@ -12,8 +12,8 @@ exports.create = (req, res) => {
 
   const device = {
     category: req.body.category,
-    description: req.body.color,
-    published: req.body.partNumber,
+    color: req.body.color,
+    partNumber: req.body.partNumber,
   };
 
   Device.create(device)
