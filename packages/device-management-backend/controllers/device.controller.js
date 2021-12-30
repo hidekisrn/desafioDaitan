@@ -3,7 +3,6 @@ const Device = db.devices;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  // Validate request
   if (!req.body.category) {
     res.status(400).send({
       message: "Category cannot be empty!",
@@ -11,14 +10,12 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Tutorial
   const device = {
     category: req.body.category,
     description: req.body.color,
     published: req.body.partNumber,
   };
 
-  // Save Tutorial in the database
   Device.create(device)
     .then((data) => {
       res.send(data);

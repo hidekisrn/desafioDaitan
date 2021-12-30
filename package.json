@@ -4,6 +4,7 @@
     "body-parser": "^1.19.1"
   },
   "scripts": {
-    "ng help": "npx ng help"
+    "ng help": "npx ng help",
+    "start": "docker-compose up -d"
   }
 }
