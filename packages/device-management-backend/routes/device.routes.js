@@ -1,15 +1,15 @@
-module.exports = app => {
-    const devices = require("../controllers/device.controller.js");
-  
-    var router = require("express").Router();
+module.exports = (app) => {
+  const devices = require("../controllers/device.controller.js");
 
-    router.post("/", devices.create);
+  var router = require("express").Router();
 
-    router.get("/", devices.findAll);
+  router.post("/", devices.create);
 
-    router.put("/:id", devices.update);
+  router.get("/", devices.findAll);
 
-    router.delete("/:id", devices.delete);
-  
-    app.use('/api/devices', router);
-  };
+  router.put("/:id", devices.update);
+
+  router.delete("/:id", devices.delete);
+
+  app.use("/api/devices", router);
+};

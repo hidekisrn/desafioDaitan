@@ -13,5 +13,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.devices = require("./device.model.js")(sequelize, Sequelize);
+db.categories = require("./category.model.js")(sequelize, Sequelize);
 
 module.exports = db;
