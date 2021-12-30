@@ -8,7 +8,7 @@ import { DeviceService } from 'src/app/services/device/device.service';
   styleUrls: ['./list-devices.component.css'],
 })
 export class ListDevicesComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'category', 'color', 'partNumber'];
+  displayedColumns: string[] = ['id', 'category_id', 'color', 'partNumber'];
 
   devices: Device[];
 
@@ -16,11 +16,13 @@ export class ListDevicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveDevices();
+    console.log(this.devices);
   }
 
   retrieveDevices(): void {
     this.deviceService.getAll().subscribe({
       next: (data) => {
+        console.log(data);
         this.devices = data;
         console.log(data);
       },

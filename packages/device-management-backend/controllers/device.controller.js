@@ -3,7 +3,7 @@ const Device = db.devices;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.body.category) {
+  if (!req.body.category_id) {
     res.status(400).send({
       message: "Category cannot be empty!",
     });
@@ -11,7 +11,7 @@ exports.create = (req, res) => {
   }
 
   const device = {
-    category: req.body.category,
+    category_id: req.body.category_id,
     color: req.body.color,
     partNumber: req.body.partNumber,
   };
@@ -31,6 +31,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   Device.findAll()
     .then((data) => {
+      console.log(data);
       res.send(data);
     })
     .catch((err) => {

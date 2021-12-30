@@ -9,7 +9,7 @@ import { DeviceService } from 'src/app/services/device/device.service';
 })
 export class AddDeviceComponent implements OnInit {
   device: Device = {
-    category: '',
+    category_id: '',
     color: '',
     partNumber: undefined,
   };
@@ -21,7 +21,7 @@ export class AddDeviceComponent implements OnInit {
 
   saveDevice(): void {
     const data = {
-      category: this.device.category,
+      category: this.device.category_id,
       color: this.device.color,
       partNumber: this.device.partNumber,
     };
@@ -38,7 +38,7 @@ export class AddDeviceComponent implements OnInit {
   newDevice(): void {
     this.submitted = false;
     this.device = {
-      category: '',
+      category_id: '',
       color: '',
       partNumber: undefined,
     };

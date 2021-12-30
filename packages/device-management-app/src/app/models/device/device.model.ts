@@ -1,6 +1,6 @@
 export class Device {
   id?: any;
-  category?: string;
+  category_id?: any;
   color?: string;
   partNumber?: number;
 }

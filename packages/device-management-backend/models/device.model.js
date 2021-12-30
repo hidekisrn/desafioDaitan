@@ -1,13 +1,27 @@
 module.exports = (sequelize, Sequelize) => {
   const Device = sequelize.define("device", {
-    category: {
-      type: Sequelize.STRING,
+    category_id: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: "categories",
+        key: "id",
+      },
     },
     color: {
-      type: Sequelize.STRING,
+      type: Sequelize.STRING(16),
     },
     partNumber: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.INTEGER.UNSIGNED,
+    },
+    createdAt: {
+      type: Sequelize.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.fn("NOW"),
+    },
+    updatedAt: {
+      type: Sequelize.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.fn("NOW"),
     },
   });
 
