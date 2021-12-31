@@ -1,11 +1,19 @@
 module.exports = (sequelize, Sequelize) => {
   const Device = sequelize.define("device", {
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+      field: "id",
+    },
     category_id: {
       type: Sequelize.INTEGER,
       references: {
         model: "categories",
         key: "id",
       },
+      field: "category_id",
     },
     color: {
       type: Sequelize.STRING(16),

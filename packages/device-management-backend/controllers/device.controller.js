@@ -1,6 +1,7 @@
 const db = require("../models");
 const Device = db.devices;
-const Op = db.Sequelize.Op;
+const Category = db.categories;
+const Sequelize = db.Sequelize;
 
 exports.create = (req, res) => {
   if (!req.body.category_id) {
@@ -29,7 +30,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  Device.findAll()
+  Device.findAll({ include: ["category"] })
     .then((data) => {
       console.log(data);
       res.send(data);

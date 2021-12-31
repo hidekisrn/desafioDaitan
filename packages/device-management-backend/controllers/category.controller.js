@@ -1,6 +1,6 @@
 const db = require("../models");
 const Category = db.categories;
-const Op = db.Sequelize.Op;
+// const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
   if (!req.body.name) {
