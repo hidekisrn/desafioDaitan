@@ -27,8 +27,4 @@ export class ListCategoriesComponent implements OnInit {
       error: (e) => console.error(e),
     });
   }
-
-  refreshList(): void {
-    this.retrieveCategories();
-  }
 }

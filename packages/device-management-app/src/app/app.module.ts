@@ -5,6 +5,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,13 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { ListCategoriesComponent } from './components/list-categories/list-categories.component';
 
 @NgModule({
-  declarations: [AppComponent, AddDeviceComponent, ListDevicesComponent, AddCategoryComponent, ListCategoriesComponent],
+  declarations: [
+    AppComponent,
+    AddDeviceComponent,
+    ListDevicesComponent,
+    AddCategoryComponent,
+    ListCategoriesComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +30,7 @@ import { ListCategoriesComponent } from './components/list-categories/list-categ
     MatMenuModule,
     FormsModule,
     HttpClientModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

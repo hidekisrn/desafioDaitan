@@ -8,7 +8,7 @@ import { DeviceService } from 'src/app/services/device/device.service';
   styleUrls: ['./list-devices.component.css'],
 })
 export class ListDevicesComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'color', 'partNumber'];
+  displayedColumns: string[] = ['id', 'name', 'color', 'partNumber', 'action'];
 
   devices: Device[];
 
@@ -27,7 +27,7 @@ export class ListDevicesComponent implements OnInit {
     });
   }
 
-  refreshList(): void {
-    this.retrieveDevices();
+  deleteDevice(): void {
+    console.log('aoba');
   }
 }
