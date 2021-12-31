@@ -23,7 +23,7 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let element">
-      <button (click)="deleteDevice(element.id)" class="btn btn-light">
+      <button (click)="deleteDevice(element.id)" class="btn" style="background-color:transparent" >
         <mat-icon>delete</mat-icon>
       </button>
     </td>
