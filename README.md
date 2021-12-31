@@ -27,7 +27,7 @@ Category:
 # Prerequisites
 - [Node.js with Node Package Manager](https://nodejs.org/en/download/)
 - [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)
-- [Docker](https://docs.docker.com/engine/install/ubuntu/), in case you couldn't install, [read this guide](https://computingforgeeks.com/install-docker-and-docker-compose-on-linux-mint-19/)
+- [Docker and Docker Compose](https://docs.docker.com/engine/install/ubuntu/), in case you couldn't install, [read this guide](https://computingforgeeks.com/install-docker-and-docker-compose-on-linux-mint-19/)
 - [Angular CLI](https://angular.io/cli)
 - [DBeaver](https://dbeaver.io/download/), if you want to manage our database
 - [Postman](https://www.postman.com/), in case you want to test our API
