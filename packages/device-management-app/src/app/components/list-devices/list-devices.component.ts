@@ -27,7 +27,16 @@ export class ListDevicesComponent implements OnInit {
     });
   }
 
-  deleteDevice(): void {
-    console.log('aoba');
+  refreshList(): void {
+    this.retrieveDevices();
+  }
+
+  deleteDevice(id: any): void {
+    this.deviceService.delete(id).subscribe({
+      next: () => {
+        this.refreshList();
+      },
+      error: (e) => console.error(e),
+    });
   }
 }

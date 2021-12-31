@@ -1,5 +1,5 @@
 <div>
-  <div class="submit-form">
+  <form #categoryForm="ngForm">
     <div *ngIf="!submitted">
       <div class="form-group">
         <label for="name">Name</label>
@@ -10,15 +10,35 @@
           required
           [(ngModel)]="category.name"
           name="name"
+          [class.is-invalid]="name.invalid && name.touched"
+          #name="ngModel"
+          pattern=".{0,128}"
         />
+        <div *ngIf="name.errors && name.invalid && name.touched">
+          <small class="text-danger" *ngIf="name?.errors?.['required']"
+            >Name is required</small
+          >
+          <small class="text-danger" *ngIf="name?.errors?.['pattern']"
+            >Name must not have more than 128 characters</small
+          >
+        </div>
       </div>
 
-      <button (click)="saveCategory()" class="btn btn-success">Submit</button>
+      <button
+        (click)="saveCategory()"
+        class="btn btn-success"
+        [disabled]="categoryForm.invalid"
+      >
+        Submit
+      </button>
     </div>
 
     <div *ngIf="submitted">
       <h4>Category was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newCategory()">Add</button>
+      <button class="btn btn-success" (click)="newCategory()">Add more</button>
+      <button class="btn btn-success" (click)="redirectToCategories()">
+        List categories
+      </button>
     </div>
-  </div>
+  </form>
 </div>

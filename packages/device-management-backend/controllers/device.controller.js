@@ -32,7 +32,6 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   Device.findAll({ include: ["category"] })
     .then((data) => {
-      console.log(data);
       res.send(data);
     })
     .catch((err) => {

@@ -8,7 +8,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
   styleUrls: ['./list-categories.component.css'],
 })
 export class ListCategoriesComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name'];
+  displayedColumns: string[] = ['id', 'name', 'action'];
 
   categories: Category[];
 
@@ -22,7 +22,19 @@ export class ListCategoriesComponent implements OnInit {
     this.categoryService.getAll().subscribe({
       next: (data) => {
         this.categories = data;
-        console.log(data);
+      },
+      error: (e) => console.error(e),
+    });
+  }
+
+  refreshList(): void {
+    this.retrieveCategories();
+  }
+
+  deleteCategory(id: any): void {
+    this.categoryService.delete(id).subscribe({
+      next: () => {
+        this.refreshList();
       },
       error: (e) => console.error(e),
     });

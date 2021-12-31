@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Device } from 'src/app/models/device/device.model';
 import { DeviceService } from 'src/app/services/device/device.service';
 import { CategoryService } from 'src/app/services/category/category.service';
@@ -19,13 +21,17 @@ export class AddDeviceComponent implements OnInit {
     color: '',
     partNumber: undefined,
   };
+
   submitted = false;
+
+  categoryOptionHasError = true;
 
   categoriesOptions: CategoryOption[];
 
   constructor(
     private deviceService: DeviceService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,7 +59,6 @@ export class AddDeviceComponent implements OnInit {
 
     this.deviceService.create(data).subscribe({
       next: (res) => {
-        console.log(res);
         this.submitted = true;
       },
       error: (e) => console.error(e),
@@ -67,5 +72,9 @@ export class AddDeviceComponent implements OnInit {
       color: '',
       partNumber: undefined,
     };
+  }
+
+  redirectToDevices(): void {
+    this.router.navigate(['/devices']);
   }
 }
