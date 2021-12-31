@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from 'src/app/models/device/device.model';
 import { DeviceService } from 'src/app/services/device/device.service';
+import { CategoryService } from 'src/app/services/category/category.service';
+
+interface CategoryOption {
+  value: any;
+  viewValue: string | undefined;
+}
 
 @Component({
   selector: 'app-add-device',
@@ -15,13 +21,32 @@ export class AddDeviceComponent implements OnInit {
   };
   submitted = false;
 
-  constructor(private deviceService: DeviceService) {}
+  categoriesOptions: CategoryOption[];
 
-  ngOnInit(): void {}
+  constructor(
+    private deviceService: DeviceService,
+    private categoryService: CategoryService
+  ) {}
+
+  ngOnInit(): void {
+    this.retrieveCategories();
+  }
+
+  retrieveCategories(): void {
+    this.categoryService.getAll().subscribe({
+      next: (data) => {
+        this.categoriesOptions = data.map((category) => ({
+          value: category.id,
+          viewValue: category.name,
+        }));
+      },
+      error: (e) => console.error(e),
+    });
+  }
 
   saveDevice(): void {
     const data = {
-      category: this.device.category_id,
+      category_id: this.device.category_id,
       color: this.device.color,
       partNumber: this.device.partNumber,
     };

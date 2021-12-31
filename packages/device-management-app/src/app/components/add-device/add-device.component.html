@@ -1,16 +1,33 @@
 <div>
   <div class="submit-form">
     <div *ngIf="!submitted">
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="category">Category</label>
         <input
           type="text"
           class="form-control"
-          id="category"
+          id="category_id"
           required
           [(ngModel)]="device.category_id"
-          name="category"
+          name="category_id"
         />
+      </div> -->
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select
+          class="form-control"
+          id="category_id"
+          name="category_id"
+          [(ngModel)]="device.category_id"
+        >
+          <option
+            *ngFor="let categoryOption of categoriesOptions"
+            [value]="categoryOption.value"
+          >
+            {{ categoryOption.viewValue }}
+          </option>
+        </select>
       </div>
 
       <div class="form-group">
