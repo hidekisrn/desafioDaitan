@@ -1,4 +1,4 @@
-# Daitan Coding Challenge
+# Eldorado Coding Challenge
 
 You must implement a simple device management web app. Devices have (Id, category, color,
 partNumber). The device category must also be managed by your APP. Types have (id, name).
